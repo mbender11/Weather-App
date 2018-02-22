@@ -34,8 +34,12 @@
                                     <action selector="getWeather:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0LW-wS-hPH"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLS-ps-ylb">
-                                <rect key="frame" x="166.5" y="297" width="42" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLS-ps-ylb">
+                                <rect key="frame" x="16" y="300" width="343" height="347"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="347" id="FLj-uh-67o"/>
+                                    <constraint firstAttribute="width" constant="343" id="pVT-kE-dfa"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -51,17 +55,18 @@
                         <constraints>
                             <constraint firstItem="UfR-e2-cDA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0KW-cK-78Y"/>
                             <constraint firstItem="2CX-Kz-JVO" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="E9O-6j-Fze"/>
+                            <constraint firstItem="BLS-ps-ylb" firstAttribute="top" secondItem="UfR-e2-cDA" secondAttribute="bottom" constant="62" id="Fs3-nn-dcQ"/>
                             <constraint firstItem="MDt-YU-Epx" firstAttribute="top" secondItem="SST-Cm-id8" secondAttribute="bottom" constant="45" id="GLS-8b-tOK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MDt-YU-Epx" secondAttribute="trailing" constant="16" id="Jhg-3T-5xW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BLS-ps-ylb" secondAttribute="trailing" constant="16" id="Kmr-1Z-Yv6"/>
                             <constraint firstItem="2CX-Kz-JVO" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="T5d-k3-OMi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="BLS-ps-ylb" secondAttribute="bottom" constant="20" id="UNz-nm-wNz"/>
                             <constraint firstItem="SST-Cm-id8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WgP-a1-nOC"/>
                             <constraint firstItem="SST-Cm-id8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="65" id="Zqg-EG-6YZ"/>
-                            <constraint firstItem="BLS-ps-ylb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aa9-kn-lfg"/>
                             <constraint firstItem="MDt-YU-Epx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="jDa-MU-K5V"/>
                             <constraint firstItem="2CX-Kz-JVO" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="pVC-A5-FxY"/>
                             <constraint firstItem="UfR-e2-cDA" firstAttribute="top" secondItem="MDt-YU-Epx" secondAttribute="bottom" constant="18" id="sfl-Ls-QoN"/>
                             <constraint firstItem="2CX-Kz-JVO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vHo-P2-nIH"/>
-                            <constraint firstItem="BLS-ps-ylb" firstAttribute="top" secondItem="UfR-e2-cDA" secondAttribute="bottom" constant="59" id="xO8-L3-aOr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
