@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         var message = ""
         // TODO: Fix error handling for when the user enters a city that doesn't exist. For some erason that isn't working correctly
         if city.text!.count > 0 {
-            let url = URL(string: "https://www.weather-forecast.com/locations/" + city.text! + "/forecasts/latest")!
+            let url = URL(string: "https://www.weather-forecast.com/locations/" + city.text!.replacingOccurrences(of: " ", with: "-") + "/forecasts/latest")!
             let request = NSMutableURLRequest(url: url)
             
             let task = URLSession.shared.dataTask(with: request as URLRequest) {
