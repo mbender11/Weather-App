@@ -17,28 +17,24 @@ class ViewController: UIViewController {
         var message = ""
         
         if city.text!.count > 0 {
-            let url = URL(string: "https://www.weather-forecast.com/locations/" + city.text!.replacingOccurrences(of: " ", with: "-").replacingOccurrences(of: ".", with: "") + "/forecasts/latest")!
-            let request = NSMutableURLRequest(url: url)
-            
-            let task = URLSession.shared.dataTask(with: request as URLRequest) {
-                data, response, error in
-                
+            // TODO: Handle periods in city names. Not entirely sure how openweathermaps.org handles periods in city names such as for Washington D.C., can't seem to find it.
+            let url = URL(string: "http://api.openweathermap.org/data/2.5/weather?q=" + city.text!.replacingOccurrences(of: " ", with: "+") + "&appid=539ab870116f53af64fd720cab33e79a")
+            var cityName = city.text!
+            let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
                 if error != nil {
                     print(error)
                 } else {
-                    if let unwrappedData = data {
-                        let dataString = NSString(data: unwrappedData, encoding: String.Encoding.utf8.rawValue)
-                        var stringSeparator = "</span><p class=\"b-forecast__table-description-content\"><span class=\"phrase\">"
-                        if let dataArray = dataString?.components(separatedBy: stringSeparator) {
-                            if dataArray.count > 1 {
-                                stringSeparator = "</span>"
-                                let newDataArray = dataArray[1].components(separatedBy: stringSeparator)
-                                if newDataArray.count > 1 {
-                                    // to get degree symbol on mac: option+shift+8
-                                    message = newDataArray[0].replacingOccurrences(of: "&deg;", with: "°")
-                                    print(message)
-                                }
+                    if let urlContent = data {
+                        do {
+                            let jsonResult = try JSONSerialization.jsonObject(with: urlContent, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                            print(jsonResult)
+                            print(jsonResult["name"])
+                            if let description = ((jsonResult["weather"] as? NSArray)?[0] as? NSDictionary)?["description"] as? String {
+                                print(description)
+                                message = "Weather in " + cityName + ": " + description
                             }
+                        } catch {
+                            print("JSON call failed")
                         }
                     }
                 }
@@ -50,17 +46,17 @@ class ViewController: UIViewController {
                 })
             }
             task.resume()
+            
         } else {
-            self.weather.text = "No city entered. Please try again."
+            self.weather.text = "No city entered. Please enter a city."
         }
-        
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+
     }
 
     override func didReceiveMemoryWarning() {
